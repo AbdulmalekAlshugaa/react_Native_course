@@ -1,9 +1,18 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import AppButton from "../app/components/AppText/AppButton";
 
 function welcomeScreen(props) {
   return (
     <ImageBackground
+      blurRadius={6}
       source={require("../app/assets/background.jpg")}
       style={styles.background}
     >
@@ -12,11 +21,12 @@ function welcomeScreen(props) {
           style={styles.logo}
           source={require("../app/assets/logo-red.png")}
         />
-        <Text styles={styles.textStyle}>Sell what You Don't need </Text>
+        <Text style={styles.tagline}>Sell what You Don't need </Text>
       </View>
-
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <View style={styles.containerStyle}>
+        <AppButton title="Login"></AppButton>
+        <AppButton title="Register" color="secondary" />
+      </View>
     </ImageBackground>
   );
 }
@@ -26,18 +36,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  loginButton: {
-    // give some attrsr
-    height: 70,
-    width: "100%",
-    backgroundColor: "#fc5c65",
+  title: {
+    textAlign: "center",
+    marginVertical: 8,
   },
-  registerButton: {
-    // give some attrsr
-    height: 70,
-    width: "100%",
-    backgroundColor: "#4ecdc4",
-  },
+
   logo: {
     // give some attrsr
     height: 100,
@@ -51,6 +54,17 @@ const styles = StyleSheet.create({
   textStyle: {
     height: 100,
     width: 100,
+  },
+  containerStyle: {
+    width: "100%",
+    justifyContent: "center",
+    padding: 20,
+  },
+  tagline: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "600",
+    paddingVertical: 20,
   },
 });
 
