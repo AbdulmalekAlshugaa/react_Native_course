@@ -17,27 +17,10 @@ import ListingScreen from "./screens/ListingScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import Picker from "@react-native-picker/picker";
 import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./screens/LoginScreen";
 
 // create a list of items
-const categories = [
-  { lable: "Furnisher", value: 1 },
-  { lable: "Clothing", value: 2 },
-  { lable: "Electronic", value: 3 },
-];
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectedItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-
-      <AppTextInput icon="email" placeholder="email" />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
